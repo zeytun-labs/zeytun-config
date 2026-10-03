@@ -3,7 +3,7 @@ name = "zeytun-config"
 version = "0.1.0"
 edition = "2021"
 description = "Parse proxy share links into sing-box outbound JSON (Zeytun)"
-license = "MIT"
+license = "GPL-3.0-only"
 readme = "README.md"
 
 [dependencies]
