@@ -8,6 +8,23 @@ Parse proxy share links (`vmess://`, `vless://`, `trojan://`, `ss://`, …) into
 
 Rust counterpart of [ray2sing](https://github.com/hiddify/ray2sing) for Zeytun.
 
+## Development
+
+From the umbrella repo:
+
+```bash
+git clone --recursive https://github.com/zeytun-labs/zeytun.git
+cd zeytun/zeytun-config
+cargo fmt --all --check
+cargo clippy --all-targets -- -D warnings
+cargo test --all-targets
+```
+
+Until the repos are public, cloning requires access to each submodule.
+See the [contribution guide](https://github.com/zeytun-labs/zeytun/blob/main/CONTRIBUTING.md)
+for coordination and security reporting. This crate is GPL-3.0-only; see
+[LICENSE](LICENSE).
+
 ## Library
 
 ```rust
