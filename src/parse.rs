@@ -44,10 +44,7 @@ fn parse_vless(link: &str) -> Result<ShareProxy> {
         &u.params,
         normalize_network(u.get_or("tcp", &["type", "net", "network"])),
     );
-    let flow = u
-        .get("flow")
-        .filter(|s| !s.is_empty())
-        .map(str::to_string);
+    let flow = u.get("flow").filter(|s| !s.is_empty()).map(str::to_string);
     let pe = u
         .get("packetencoding")
         .filter(|s| !s.is_empty())
@@ -747,7 +744,8 @@ fn parse_download_settings(dl: &Value) -> crate::node::DownloadSettings {
                 d.reality_sid =
                     json_string(reality, "shortId").or_else(|| json_string(reality, "short_id"));
                 if d.sni.is_none() {
-                    d.sni = json_string(tls, "server_name").or_else(|| json_string(tls, "serverName"));
+                    d.sni =
+                        json_string(tls, "server_name").or_else(|| json_string(tls, "serverName"));
                 }
             }
         }
@@ -761,8 +759,8 @@ fn parse_download_settings(dl: &Value) -> crate::node::DownloadSettings {
         d.fingerprint = d
             .fingerprint
             .or_else(|| json_string(reality, "fingerprint"));
-        d.reality_pbk = json_string(reality, "publicKey")
-            .or_else(|| json_string(reality, "public_key"));
+        d.reality_pbk =
+            json_string(reality, "publicKey").or_else(|| json_string(reality, "public_key"));
         d.reality_sid =
             json_string(reality, "shortId").or_else(|| json_string(reality, "short_id"));
     }
